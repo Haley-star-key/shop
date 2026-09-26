@@ -211,7 +211,7 @@ void sales(char *query_date) {
             strcpy(target_date, query_date);
         } else {
             // 如果没指定，默认查当天
-            sprintf(target_date, "%d", current_day);
+            sprintf(target_date, "%d", current_day);//将数据存入target_date
         }
 
         if (strcmp(record_date, target_date) != 0) {
