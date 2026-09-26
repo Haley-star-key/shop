@@ -116,7 +116,7 @@ void checkout() {
     }
 
     sale_num++;
-    double total = 0.0;
+    double total = 0.00;//初始化
     
     // 获取当前时间（格式 HH:MM:SS）
     time_t now = time(0);
@@ -124,21 +124,19 @@ void checkout() {
     char time_str[20];
     strftime(time_str, sizeof(time_str), "%H:%M:%S", t);
 
-    // 打印控制台小票
     printf("\n--------- Receipt ---------\n");
-    printf("No.      : %d\n", sale_num);
-    printf("Date     : %d\n", current_day);
-    printf("Time     : %s\n", time_str);
+    printf("%s %s %s %s\n", "Item", "Pri.", "Qty", "Amount");
     printf("----------------------------\n");
     
     for (int i = 0; i < cart_count; i++) {
         int storeIdx = findstore(cart[i].id);
         double amount = store[storeIdx].price * cart[i].count;
         total += amount;
-        printf("%s %.2f x%d = %.2f\n",
-               store[storeIdx].name,
-               store[storeIdx].price,
-               cart[i].count,
+        
+        printf("%s %.2f x%d =%.2f\n", 
+               store[storeIdx].name, 
+               store[storeIdx].price, 
+               cart[i].count, 
                amount);
     }
     
@@ -211,7 +209,7 @@ void sales(char *query_date) {
             strcpy(target_date, query_date);
         } else {
             // 如果没指定，默认查当天
-            sprintf(target_date, "%d", current_day);//将数据存入target_date
+            sprintf(target_date, "%d", current_day);
         }
 
         if (strcmp(record_date, target_date) != 0) {
