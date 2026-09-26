@@ -267,19 +267,6 @@ void itemadd(char*id,char*name,double price){
     item_count++;
 }
 
-void itemdel(char *id) {
-    for (int i = 0; i < item_count; i++) {
-        if (strcmp(store[i].id, id) == 0) {
-            for (int j = i; j < item_count - 1; j++) {
-                store[j] = store[j + 1];
-            }
-            item_count--;
-            printf("%s(%s) removed.\n",store[i].name,id);
-            return;
-        }
-    }
-        printf("error\n");
-}
 
 void prices() {
     printf("Item\t\tNo.\tPri.\n");
