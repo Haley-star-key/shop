@@ -57,7 +57,6 @@ void print_cart() {
         printf("price=0\n");
         return;
     }
-    printf("\nnow:\n");//两个换行符使看起来更好看
     for (int i = 0; i < cart_count; i++) {//for循环的目的是让每一个商品信息都来一次
         int storeIdx = findstore(cart[i].id);
         printf("%s %.2f x%d =%.2f\n",
