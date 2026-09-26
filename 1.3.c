@@ -225,7 +225,7 @@ void sales(char *query_date) {
         double amount = atof(token);
         
         // 打印匹配的记录
-        printf("%-6s %s    %-22s %.2f\n", serial, items, "", amount);
+        printf("%s %s    %s %.2f\n", serial, items, "", amount);
         
         daily_total += amount;
         match_count++;
